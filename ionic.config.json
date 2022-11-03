@@ -1,0 +1,8 @@
+{
+  "name": "QuizNet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "9fff3fbc"
+}
