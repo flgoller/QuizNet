@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "quiznet-143f4"
+  },
+  "targets": {
+    "quiznet-143f4": {
+      "hosting": {
+        "app": [
+          "quiznet-143f4"
+        ]
+      }
+    }
+  }
+}

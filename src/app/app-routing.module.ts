@@ -1,22 +1,55 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { LogoutComponent } from './logout/logout.page';
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/compat/auth-guard';
+
+// TODO: Standardverhalten definieren
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToRoot = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'login',
+    loadChildren: () => 
+    import('./login/login.module').then(m => m.LoginPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToRoot },
+  },
+  {
+    path: 'register',
+    loadChildren: () => 
+    import('./register/register.module').then(
+      m => m.RegisterPageModule
+      ),
+      canActivate: [AngularFireAuthGuard],
+      data: { authGuardPipe: redirectLoggedInToRoot },
+  },
+  {
+    path: 'home',
+    loadChildren: () => 
+    import('./home/home.module').then(
+      m => m.HomePageModule
+      ),
+      canActivate: [AngularFireAuthGuard],
+      data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
