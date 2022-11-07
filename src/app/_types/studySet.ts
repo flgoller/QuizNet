@@ -1,8 +1,8 @@
 export class StudySet {  
     Key?: string | null;
-    ChangedOn?: Date;
+    ChangedOn?: string;
     CreatedBy?: string;
-    CreatedOn?: Date;
+    CreatedOn?: string;
     Name?: string;
     UserAuthorization?: string;
 }

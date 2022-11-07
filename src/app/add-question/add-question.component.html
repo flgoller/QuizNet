@@ -1,0 +1,27 @@
+<ion-button expand="block" id="open-add-question-modal" (click)="newQuestion()">Add Question</ion-button>
+
+<ion-modal trigger="open-add-question-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Add Question</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="saveQuestion()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-item>
+        <ion-label position="floating">Question</ion-label>
+        <ion-input type="text" [(ngModel)]="question.Question"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Answer</ion-label>
+        <ion-input type="text" [(ngModel)]="question.Answer"></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>

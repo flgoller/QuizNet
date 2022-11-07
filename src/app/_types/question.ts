@@ -3,6 +3,6 @@ export class Question {
     Question: string;
     Answer: string;
     CreatedBy: string;
-    CreatedOn: Date;
+    CreatedOn: string;
     StudySetKey: string;
 }

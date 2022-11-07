@@ -43,10 +43,10 @@ const routes: Routes = [
       data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
-    path: 'add',
+    path: 'studySet/:key',
     loadChildren: () => 
-    import('./add-study-set/add-study-set.component').then(
-      m => m.AddStudySetComponent
+    import('./study-set/study-set.module').then(
+      m => m.StudySetPageModule
       ),
       canActivate: [AngularFireAuthGuard],
       data: { authGuardPipe: redirectUnauthorizedToLogin },
@@ -55,6 +55,11 @@ const routes: Routes = [
     path: 'logout',
     component: LogoutComponent,
   },
+  {
+    path: 'study-set',
+    loadChildren: () => import('./study-set/study-set.module').then( m => m.StudySetPageModule)
+  },
+
 ];
 
 @NgModule({
