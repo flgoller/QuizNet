@@ -8,13 +8,15 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 
+import { AddStudySetComponent } from '../add-study-set/add-study-set.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, AddStudySetComponent]
 })
 export class HomePageModule {}

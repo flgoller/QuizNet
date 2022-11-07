@@ -43,6 +43,15 @@ const routes: Routes = [
       data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
+    path: 'add',
+    loadChildren: () => 
+    import('./add-study-set/add-study-set.component').then(
+      m => m.AddStudySetComponent
+      ),
+      canActivate: [AngularFireAuthGuard],
+      data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
     path: 'logout',
     component: LogoutComponent,
   },

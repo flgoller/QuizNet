@@ -4,25 +4,25 @@
 
 export const environment = {
   firebase: {
-    projectId: 'quiznet-143f4',
-    appId: '1:240195829250:web:f0d1591a707fbad64ef11b',
-    databaseURL: 'https://quiznet-143f4-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'quiznet-143f4.appspot.com',
-    apiKey: 'AIzaSyCRwsDZ4O1heC6jw_ZQO9XX_17WMA14QBs',
-    authDomain: 'quiznet-143f4.firebaseapp.com',
-    messagingSenderId: '240195829250',
-    measurementId: 'G-2L181NZYME',
+    apiKey: "AIzaSyDVnKwvve_sd1Ur3Nxw1f3raXsPK1N0pkM",
+    authDomain: "quiznet-f98f1.firebaseapp.com",
+    databaseURL: "https://quiznet-f98f1-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "quiznet-f98f1",
+    storageBucket: "quiznet-f98f1.appspot.com",
+    messagingSenderId: "766522502865",
+    appId: "1:766522502865:web:3b3f148acd6f83306d9ff0",
+    measurementId: "G-2BQLPEGX5X"
   },
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCRwsDZ4O1heC6jw_ZQO9XX_17WMA14QBs",
-    authDomain: "quiznet-143f4.firebaseapp.com",
-    databaseURL: "https://quiznet-143f4-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "quiznet-143f4",
-    storageBucket: "quiznet-143f4.appspot.com",
-    messagingSenderId: "240195829250",
-    appId: "1:240195829250:web:f0d1591a707fbad64ef11b",
-    measurementId: "G-2L181NZYME"
+    apiKey: "AIzaSyDVnKwvve_sd1Ur3Nxw1f3raXsPK1N0pkM",
+    authDomain: "quiznet-f98f1.firebaseapp.com",
+    databaseURL: "https://quiznet-f98f1-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "quiznet-f98f1",
+    storageBucket: "quiznet-f98f1.appspot.com",
+    messagingSenderId: "766522502865",
+    appId: "1:766522502865:web:3b3f148acd6f83306d9ff0",
+    measurementId: "G-2BQLPEGX5X"
   }
 };
 
