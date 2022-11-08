@@ -1,0 +1,17 @@
+.buttons{
+    position: absolute;
+    bottom: 0;
+    height: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: stretch;
+}
+
+.buttons > *{
+    flex-grow: 1;
+}
+
+h1{
+    text-align: center;
+}

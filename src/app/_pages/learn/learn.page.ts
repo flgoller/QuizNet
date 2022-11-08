@@ -23,6 +23,7 @@ export class LearnPage implements OnInit {
   correctAnswers: number = 0;
   incorrectAnswers: number = 0;
 
+
   test = this.route.params.subscribe(params => {
     this.studySetKey = params['key'];
   })

@@ -1,11 +1,14 @@
-<ion-slides>
-  <ion-slide>
-    <h1>Question</h1>
-    <p>{{question.Question}}</p>
+<ion-slides #flashcard [options]="slideOpts">
+  <ion-slide (click)="swipeNext()">
+    <div>
+      <ion-text color="primary" class="title">Question</ion-text>
+      <p>{{question.Question}}</p>
+    </div>
   </ion-slide>
-  <ion-slide>
-    <h1>Answer</h1>
-    <br>
-    <p>{{question.Answer}}</p>
+  <ion-slide (click)="swipeBack()">
+    <div>
+      <ion-text color="primary" class="title">Answer</ion-text>
+      <p>{{question.Answer}}</p>
+    </div>
   </ion-slide>
 </ion-slides>
