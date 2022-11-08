@@ -23,7 +23,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 
 import { FormsModule } from '@angular/forms';
-import { AddStudySetComponent } from './add-study-set/add-study-set.component';
+import { CommonModule } from '@angular/common';
+import { AddStudySetComponent } from './_components/add-study-set/add-study-set.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { AddStudySetComponent } from './add-study-set/add-study-set.component';
     FormsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    CommonModule,
     IonicStorageModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

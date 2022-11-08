@@ -1,0 +1,11 @@
+<h1 *ngIf="!isEditing">{{studySet.Name}}</h1>
+<ion-icon *ngIf="!isEditing" size="large" name="create-outline" (click)="editName()" slot="right"></ion-icon>
+
+<form *ngIf="isEditing" [formGroup]="editStudySetForm" (keydown.enter)="updateStudySet()">
+  <ion-item class="ion-no-padding">
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input formControlName="name" type="text" [placeholder]="studySet.Name"></ion-input>
+  </ion-item>
+  <ion-button color="success" (click)="updateStudySet()">Save</ion-button>
+  <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+</form>
