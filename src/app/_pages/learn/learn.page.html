@@ -7,6 +7,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-text *ngIf="studySet"><h1>{{studySet.Name}}</h1></ion-text>
+<ion-content class="ion-padding" *ngIf="questions?.length">
+  <ng-container *ngIf="!showResult">
+    <ion-text ><h1>{{studySet.Name}}</h1></ion-text>
+    <app-flashcard [question]="questions[index]"></app-flashcard>
+    <div class="buttons">
+      <ion-button (click)="correct()" color="success">correct</ion-button>
+      <ion-button (click)="incorrect()" color="danger">incorrect</ion-button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showResult">
+    <h1>Correct</h1>
+    <br>
+    {{correctAnswers}}
+    <h1>Incorrect</h1>
+    <br>
+    {{incorrectAnswers}}
+  </ng-container>
+  
+</ion-content>
+
+<ion-content class="ion-padding" *ngIf="!questions?.length">
+  <p>No questions available.</p>
 </ion-content>

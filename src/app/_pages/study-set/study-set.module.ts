@@ -22,10 +22,11 @@ import { EditQuestionComponent } from 'src/app/_components/edit-question/edit-qu
     ReactiveFormsModule,
   ],
   declarations: [
-    StudySetPage, 
-    QuestionsComponent, 
-    AddQuestionComponent, 
-    EditStudySetNameComponent, 
-    EditQuestionComponent]
+    StudySetPage,
+    QuestionsComponent,
+    AddQuestionComponent,
+    EditStudySetNameComponent,
+    EditQuestionComponent,
+]
 })
 export class StudySetPageModule { }

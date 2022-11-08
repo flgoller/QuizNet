@@ -7,7 +7,6 @@ import {
   redirectLoggedInTo,
 } from '@angular/fire/compat/auth-guard';
 
-// TODO: Standardverhalten definieren
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToRoot = () => redirectLoggedInTo(['home']);
 
@@ -45,8 +44,8 @@ const routes: Routes = [
   {
     path: 'learn/:key',
     loadChildren: () => 
-    import('./_pages/learn/learn-routing.module').then(
-      m => m.LearnPageRoutingModule
+    import('./_pages/learn/learn.module').then(
+      m => m.LearnPageModule
       ),
       canActivate: [AngularFireAuthGuard],
       data: { authGuardPipe: redirectUnauthorizedToLogin },

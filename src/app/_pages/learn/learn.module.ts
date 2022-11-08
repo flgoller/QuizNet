@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { LearnPageRoutingModule } from './learn-routing.module';
 
 import { LearnPage } from './learn.page';
+import { FlashcardComponent } from 'src/app/_components/flashcard/flashcard.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LearnPageRoutingModule,
-    ReactiveFormsModule
+    LearnPageRoutingModule
   ],
-  declarations: [LearnPage]
+  declarations: [LearnPage, FlashcardComponent]
 })
-export class LearnPageModule {}
+export class LearnPageModule { }
