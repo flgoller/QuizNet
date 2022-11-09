@@ -15,12 +15,16 @@ export class FlashcardComponent implements OnInit {
 
   @ViewChild('flashcard') slides: IonSlides;
 
+  ngOnChanges(){
+    this.slides.slideTo(0, 0);
+  }
+
   swipeNext() {
-    this.slides.slideNext();
+    this.slides.slideNext(1000);
   }
 
   swipeBack() {
-    this.slides.slidePrev();
+    this.slides.slidePrev(1000);
   }
 
   constructor() { }

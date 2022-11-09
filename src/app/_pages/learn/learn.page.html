@@ -22,10 +22,16 @@
   <ng-container *ngIf="showResult">
     <h1>Correct</h1>
     <br>
-    {{correctAnswers}}
+    <p>{{correctAnswers}}</p>
+    <br>
+    <br>
     <h1>Incorrect</h1>
     <br>
-    {{incorrectAnswers}}
+    <p>{{incorrectAnswers}}</p>
+    <br>
+    <br>
+    <ion-button expand="block" color="primary" (click)="again()">Again</ion-button>
+    <ion-button expand="block" color="secondary" (click)="goBack()">Home</ion-button>
   </ng-container>
 
 </ion-content>

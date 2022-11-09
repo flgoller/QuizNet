@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { map } from 'rxjs/operators';
 import { QuestionsService } from 'src/app/_services/questions.service';
@@ -14,7 +14,7 @@ import { StudySet } from 'src/app/_types/studySet';
 })
 export class LearnPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private studySetService: StudySetsService, private navCtrl: NavController, private questionsService: QuestionsService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private studySetService: StudySetsService, private navCtrl: NavController, private questionsService: QuestionsService) { }
   studySetKey: string;
   studySet: StudySet;
   questions?: Question[]
@@ -74,6 +74,11 @@ export class LearnPage implements OnInit {
     this.index++;
     this.incorrectAnswers++;
     this.showResult = this.index == this.questions?.length
+  }
+
+  again()
+  {
+    window.location.reload();
   }
 
 }
