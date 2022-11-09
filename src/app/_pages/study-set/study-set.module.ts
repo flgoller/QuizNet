@@ -27,6 +27,6 @@ import { EditQuestionComponent } from 'src/app/_components/edit-question/edit-qu
     AddQuestionComponent,
     EditStudySetNameComponent,
     EditQuestionComponent,
-]
+  ]
 })
 export class StudySetPageModule { }

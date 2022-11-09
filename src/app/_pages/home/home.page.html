@@ -13,16 +13,16 @@
   <div>
     <ion-card class="ion-no-padding" *ngFor="let studySet of studySets; let i = index">
       <ion-card-header>
-        <ion-card-title >{{ studySet.Name }}</ion-card-title>
+        <ion-card-title>{{ studySet.Name }}</ion-card-title>
       </ion-card-header>
-      <ion-card-content >
+      <ion-card-content>
         <ion-icon (click)="learnStudySet(studySet.Key)" size="large" name="book-outline"></ion-icon>
-        <ion-icon (click)="openStudySet(studySet.Key)" size="large"  name="create-outline"></ion-icon>
-        <ion-icon (click)="deleteStudySet(studySet.Key)" size="large"  name="trash-outline" ></ion-icon>
+        <ion-icon (click)="openStudySet(studySet.Key)" size="large" name="create-outline"></ion-icon>
+        <ion-icon (click)="deleteStudySet(studySet.Key)" size="large" name="trash-outline"></ion-icon>
       </ion-card-content>
     </ion-card>
   </div>
-  
+
   <br>
   <app-add-study-set pos></app-add-study-set>
 </ion-content>

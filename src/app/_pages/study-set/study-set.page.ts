@@ -11,7 +11,14 @@ import { StudySet } from '../../_types/studySet';
   styleUrls: ['./study-set.page.scss'],
 })
 export class StudySetPage implements OnInit {
-  constructor(private route: ActivatedRoute, private studySetService: StudySetsService, private navCtrl: NavController) {
+
+  key: string;
+  studySet: StudySet;
+
+  constructor(
+    private route: ActivatedRoute,
+    private studySetService: StudySetsService,
+    private navCtrl: NavController) {
     this.studySetService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -22,20 +29,15 @@ export class StudySetPage implements OnInit {
       this.studySet = data.filter(x => x.Key == this.key)[0];
     });
 
+    this.route.params.subscribe(params => {
+      this.key = params['key'];
+    })
   }
-  key: string;
-  studySet: StudySet;
 
-  test = this.route.params.subscribe(params => {
-    this.key = params['key'];
-  })
+  ngOnInit() { }
 
   goBack() {
     console.log("Back")
     this.navCtrl.back();
-  }
-
-  ngOnInit() {
-
   }
 }

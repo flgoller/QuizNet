@@ -1,19 +1,20 @@
 <ion-content>
   <ion-list>
     <ion-card class="ion-no-padding" *ngFor="let question of questions; let i = index">
-      <ion-card-content >
-        <b>Question:</b><br/>
+      <ion-card-content>
+        <b>Question:</b><br />
         <p>{{ question.Question }} </p>
-        <b>Answer</b><br/>
+        <b>Answer</b><br />
         <p>{{question.Answer}}</p>
         <br>
         <div class="icons">
-          <app-edit-question [question]="question" ></app-edit-question>
-          <ion-icon (click)="deleteQuestion(question.Key)" name="trash-outline" size="medium"></ion-icon>  
+          <app-edit-question [question]="question"></app-edit-question>
+          <ion-icon (click)="deleteQuestion(question.Key)" name="trash-outline" size="medium"></ion-icon>
         </div>
-      </ion-card-content >
+      </ion-card-content>
     </ion-card>
   </ion-list>
+  
   <p *ngIf="!questions?.length">No Questions added.</p>
   <br>
   <app-add-question [studySetKey]="studySetKey"></app-add-question>

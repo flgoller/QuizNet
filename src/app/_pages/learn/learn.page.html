@@ -8,11 +8,12 @@
 </ion-header>
 
 <ion-content class="ion-padding" *ngIf="questions?.length">
+
   <!-- Questions -->
   <ng-container *ngIf="!showResult">
     <h1>{{studySet.Name}}</h1>
     <app-flashcard [question]="questions[index]"></app-flashcard>
-    <div class="buttons">    
+    <div class="buttons">
       <ion-button (click)="incorrect()" color="danger">incorrect</ion-button>
       <ion-button (click)="correct()" color="success">correct</ion-button>
     </div>
@@ -30,12 +31,11 @@
     <p>{{incorrectAnswers}}</p>
     <br>
     <br>
-    <ion-button expand="block" color="primary" (click)="again()">Again</ion-button>
+    <ion-button expand="block" color="primary" (click)="learnAgain()">Again</ion-button>
     <ion-button expand="block" color="secondary" (click)="goBack()">Home</ion-button>
   </ng-container>
 
 </ion-content>
-
 
 <!-- No Questions -->
 <ion-content class="ion-padding" *ngIf="!questions?.length">

@@ -2,6 +2,7 @@
 
 <ion-modal trigger="open-modal">
   <ng-template>
+    
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
@@ -13,11 +14,13 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+
     <ion-content>
       <ion-item>
         <ion-label position="floating">Name</ion-label>
         <ion-input type="text" [(ngModel)]="studySet.Name"></ion-input>
       </ion-item>
     </ion-content>
+
   </ng-template>
 </ion-modal>

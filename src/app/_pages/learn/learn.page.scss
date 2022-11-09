@@ -1,4 +1,4 @@
-.buttons{
+.buttons {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -9,13 +9,14 @@
     width: 100%;
 }
 
-.buttons > *{
+.buttons>* {
     flex-grow: 1;
     width: 50%;
     height: 20vh;
 }
 
-h1, p{
+h1,
+p {
     text-align: center;
     margin: 0;
 }

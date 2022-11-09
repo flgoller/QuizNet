@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudySetsService } from '../../_services/study-sets.service';
 import { StudySet } from '../../_types/studySet';
 import { IonModal } from '@ionic/angular';
@@ -9,15 +9,14 @@ import { IonModal } from '@ionic/angular';
   styleUrls: ['./add-study-set.component.scss'],
 })
 export class AddStudySetComponent implements OnInit {
-  @ViewChild(IonModal) modal: IonModal;
 
+  @ViewChild(IonModal) modal: IonModal;
   studySet: StudySet = new StudySet();
   submitted = false;
 
   constructor(private studySetService: StudySetsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   saveStudySet(): void {
     this.studySetService.create(this.studySet).then(() => {

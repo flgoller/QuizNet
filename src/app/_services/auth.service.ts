@@ -16,7 +16,7 @@ export class AuthService {
         private router: Router,
         private menuCtrl: MenuController,
         private storageService: StorageService
-    ) {}
+    ) { }
 
     async loginWithEmailAndPassword(user: User, redirectToURL?: string) {
         try {
@@ -36,7 +36,7 @@ export class AuthService {
                     color: 'success',
                     duration: 2000,
                 })
-                .then((toast) => toast.present());
+                    .then((toast) => toast.present());
 
                 if (redirectToURL) {
                     this.menuCtrl.enable(true);
@@ -79,7 +79,7 @@ export class AuthService {
                     color: 'success',
                     duration: 2000,
                 })
-                .then((toast) => toast.present());
+                    .then((toast) => toast.present());
             }
             if (redirectToURL) {
                 this.router.navigateByUrl(redirectToURL);

@@ -1,4 +1,4 @@
-export class StudySet {  
+export class StudySet {
     Key?: string | null;
     ChangedOn?: string;
     CreatedBy?: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { QuestionsService } from '../../_services/questions.service';
 import { Question } from '../../_types/question';
@@ -23,7 +23,7 @@ export class QuestionsComponent implements OnInit {
     this.retrieveQuestions();
   }
 
-  deleteQuestion(key:string){
+  deleteQuestion(key: string) {
     this.questionsService.delete(key)
   }
 

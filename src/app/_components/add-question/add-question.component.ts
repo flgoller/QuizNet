@@ -9,17 +9,15 @@ import { Question } from '../../_types/question';
   styleUrls: ['./add-question.component.scss'],
 })
 export class AddQuestionComponent implements OnInit {
+
   @ViewChild(IonModal) modal: IonModal;
   @Input() studySetKey: string;
-
-
   question: Question = new Question();
   submitted = false;
 
   constructor(private questionService: QuestionsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   saveQuestion(): void {
     this.questionService.create(this.question, this.studySetKey).then(() => {

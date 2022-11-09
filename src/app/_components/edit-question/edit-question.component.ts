@@ -10,23 +10,22 @@ import { Question } from 'src/app/_types/question';
   styleUrls: ['./edit-question.component.scss'],
 })
 export class EditQuestionComponent implements OnInit {
-  constructor(private questionsService: QuestionsService) {
-    this.editQuestionForm = new FormGroup({
-      question: new FormControl('', Validators.required),
-      answer: new FormControl('', Validators.required),
-    });
 
-  }
   isEditing: boolean = false;
   public editQuestionForm: FormGroup;
   @Input() question: Question;
   @ViewChild(IonModal) modal: IonModal;
 
-  ngOnInit(): void {
-    console.log(this.question)
+  constructor(private questionsService: QuestionsService) {
+    this.editQuestionForm = new FormGroup({
+      question: new FormControl('', Validators.required),
+      answer: new FormControl('', Validators.required),
+    });
   }
 
-  editQuestion(){
+  ngOnInit(): void { }
+
+  editQuestion() {
     this.modal.present()
   }
 
@@ -41,6 +40,4 @@ export class EditQuestionComponent implements OnInit {
     this.isEditing = false;
     this.modal.dismiss(null, 'confirm');
   }
-
-
 }

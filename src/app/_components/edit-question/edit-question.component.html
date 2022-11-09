@@ -2,6 +2,7 @@
 
   <ion-modal trigger="open-edit-question{{question.Key}}-modal">
     <ng-template>
+
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
@@ -13,6 +14,7 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
+
       <ion-content>
         <form [formGroup]="editQuestionForm" (keydown.enter)="updateQuestion()">
           <ion-item class="ion-no-padding">
@@ -25,5 +27,6 @@
           </ion-item>
         </form>
       </ion-content>
+
     </ng-template>
   </ion-modal>

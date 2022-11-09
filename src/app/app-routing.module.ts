@@ -18,46 +18,46 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => 
-    import('./_pages/login/login.module').then(m => m.LoginPageModule),
+    loadChildren: () =>
+      import('./_pages/login/login.module').then(m => m.LoginPageModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToRoot },
   },
   {
     path: 'register',
-    loadChildren: () => 
-    import('./_pages/register/register.module').then(
-      m => m.RegisterPageModule
+    loadChildren: () =>
+      import('./_pages/register/register.module').then(
+        m => m.RegisterPageModule
       ),
-      canActivate: [AngularFireAuthGuard],
-      data: { authGuardPipe: redirectLoggedInToRoot },
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToRoot },
   },
   {
     path: 'home',
-    loadChildren: () => 
-    import('./_pages/home/home.module').then(
-      m => m.HomePageModule
+    loadChildren: () =>
+      import('./_pages/home/home.module').then(
+        m => m.HomePageModule
       ),
-      canActivate: [AngularFireAuthGuard],
-      data: { authGuardPipe: redirectUnauthorizedToLogin },
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'learn/:key',
-    loadChildren: () => 
-    import('./_pages/learn/learn.module').then(
-      m => m.LearnPageModule
+    loadChildren: () =>
+      import('./_pages/learn/learn.module').then(
+        m => m.LearnPageModule
       ),
-      canActivate: [AngularFireAuthGuard],
-      data: { authGuardPipe: redirectUnauthorizedToLogin },
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'studySet/:key',
-    loadChildren: () => 
-    import('./_pages/study-set/study-set.module').then(
-      m => m.StudySetPageModule
+    loadChildren: () =>
+      import('./_pages/study-set/study-set.module').then(
+        m => m.StudySetPageModule
       ),
-      canActivate: [AngularFireAuthGuard],
-      data: { authGuardPipe: redirectUnauthorizedToLogin },
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'logout',
@@ -67,6 +67,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

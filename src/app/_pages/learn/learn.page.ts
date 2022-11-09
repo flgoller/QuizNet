@@ -14,31 +14,25 @@ import { StudySet } from 'src/app/_types/studySet';
 })
 export class LearnPage implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private studySetService: StudySetsService, private navCtrl: NavController, private questionsService: QuestionsService) { }
   studySetKey: string;
   studySet: StudySet;
   questions?: Question[]
   index: number = 0;
-  showResult:boolean = false;
+  showResult: boolean = false;
   correctAnswers: number = 0;
   incorrectAnswers: number = 0;
 
-
-  test = this.route.params.subscribe(params => {
-    this.studySetKey = params['key'];
-  })
-
-  goBack() {
-    console.log("Back")
-    this.navCtrl.back();
-  }
-
-  showQuestions() {
-    console.log(this.questions)
+  constructor(
+    private route: ActivatedRoute,
+    private studySetService: StudySetsService,
+    private navCtrl: NavController,
+    private questionsService: QuestionsService) {
+    this.route.params.subscribe(params => {
+      this.studySetKey = params['key'];
+    })
   }
 
   ngOnInit() {
-    console.log(this.studySetKey)
     this.studySetService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -50,6 +44,11 @@ export class LearnPage implements OnInit {
     });
 
     this.retrieveQuestions()
+  }
+
+  goBack() {
+    console.log("Back")
+    this.navCtrl.back();
   }
 
   retrieveQuestions(): void {
@@ -76,9 +75,7 @@ export class LearnPage implements OnInit {
     this.showResult = this.index == this.questions?.length
   }
 
-  again()
-  {
+  learnAgain() {
     window.location.reload();
   }
-
 }

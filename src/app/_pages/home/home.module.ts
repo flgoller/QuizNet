@@ -19,4 +19,4 @@ import { AddStudySetComponent } from '../../_components/add-study-set/add-study-
   ],
   declarations: [HomePage, AddStudySetComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }

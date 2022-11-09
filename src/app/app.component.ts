@@ -10,18 +10,17 @@ import { StorageService } from './_services/storage.service';
 export class AppComponent {
   emailCurrentUser: string;
 
-  constructor(private platform: Platform, 
-      private storageService: StorageService) {
-          this.getEmailFromCurrentUser();
-          this.initializeApp();
+  constructor(private platform: Platform,
+    private storageService: StorageService) {
+    this.getEmailFromCurrentUser();
+    this.initializeApp();
   }
 
   initializeApp() {
-      this.platform.ready().then(() => {});
+    this.platform.ready().then(() => { });
   }
 
-  async getEmailFromCurrentUser()
-  {
-      this.emailCurrentUser = await this.storageService.get('emailCurrentUser');
+  async getEmailFromCurrentUser() {
+    this.emailCurrentUser = await this.storageService.get('emailCurrentUser');
   }
 }

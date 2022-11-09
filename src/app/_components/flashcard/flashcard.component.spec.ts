@@ -9,7 +9,7 @@ describe('FlashcardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlashcardComponent ],
+      declarations: [FlashcardComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

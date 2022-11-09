@@ -11,13 +11,16 @@ import { QuestionsService } from '../../_services/questions.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
   studySets?: StudySet[];
   title = '';
 
-  constructor(private studySetService: StudySetsService, private router: Router, private questionsService : QuestionsService) { }
+  constructor(
+    private studySetService: StudySetsService,
+    private router: Router,
+    private questionsService: QuestionsService) { }
 
   ngOnInit(): void {
-    console.log("retrieve study set")
     this.retrieveStudySets();
   }
 
@@ -25,12 +28,9 @@ export class HomePage implements OnInit {
     this.retrieveStudySets();
   }
 
-  deleteStudySet(key:string){
+  deleteStudySet(key: string) {
     this.studySetService.delete(key);
-
     this.questionsService.deleteAllFromStudySet(key);
-
-    this.router.navigate(['./'])
   }
 
   retrieveStudySets(): void {
@@ -44,6 +44,7 @@ export class HomePage implements OnInit {
       this.studySets = data;
     });
   }
+  
   openStudySet(key: string) {
     this.router.navigate(['/studySet', key])
   }

@@ -9,15 +9,18 @@ import { StudySet } from 'src/app/_types/studySet';
   styleUrls: ['./edit-study-set-name.component.scss'],
 })
 export class EditStudySetNameComponent implements OnInit {
+
+  @Input() studySet: StudySet;
+  isEditing: boolean = false;
+  public editStudySetForm: FormGroup;
+
   constructor(private studySetsService: StudySetsService) {
     this.editStudySetForm = new FormGroup({
       name: new FormControl('', Validators.required),
     });
-
   }
-  isEditing: boolean = false;
-  public editStudySetForm: FormGroup;
-  @Input() studySet: StudySet;
+
+  ngOnInit() { }
 
   editName() {
     this.isEditing = true;
@@ -30,9 +33,6 @@ export class EditStudySetNameComponent implements OnInit {
   updateStudySet() {
     this.studySetsService.update(this.studySet.Key, { Name: this.editStudySetForm.get('name').value })
     this.editStudySetForm.reset()
-
     this.isEditing = false;
   }
-
-  ngOnInit() { }
 }
