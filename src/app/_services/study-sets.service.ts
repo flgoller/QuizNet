@@ -11,7 +11,7 @@ import { getAuth } from '@angular/fire/auth';
 })
 export class StudySetsService {
 
-  private dbPath = '/studySets';
+  private dbPath = '/studySets/' + getAuth().currentUser.uid;
   studySetRef: AngularFireList<StudySet>;
 
   constructor(private db: AngularFireDatabase) {
@@ -24,7 +24,6 @@ export class StudySetsService {
 
   create(studySet: StudySet): any {
     studySet.CreatedOn = Math.floor(Date.now() / 1000).toString()
-    studySet.CreatedBy = getAuth().currentUser.uid
     return this.studySetRef.push(studySet);
   }
 
