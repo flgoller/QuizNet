@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { QuestionsService } from '../../_services/questions.service';
 import { Question } from '../../_types/question';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-question',
@@ -15,16 +16,29 @@ export class AddQuestionComponent implements OnInit {
   question: Question = new Question();
   submitted = false;
 
-  constructor(private questionService: QuestionsService) { }
+  constructor(private questionService: QuestionsService,
+    private toast: ToastController) { }
 
   ngOnInit(): void { }
 
   saveQuestion(): void {
-    this.questionService.create(this.question, this.studySetKey).then(() => {
-      console.log('Created new item successfully!');
-      this.submitted = true;
-    });
-    this.modal.dismiss('confirm');
+    let minLength = 2;
+    if(this.question.Question.length >= minLength && this.question.Answer.length >= minLength)
+    {
+      this.questionService.create(this.question, this.studySetKey).then(() => {
+        console.log('Created new item successfully!');
+        this.submitted = true;
+      });
+      this.modal.dismiss('confirm');
+    }
+    else{
+      this.toast.create({
+        message: `Die Frage und die Antwort müssen mindestens ${minLength} Zeichen lang sein.`,
+        color: 'danger',
+        duration: 2000,
+    })
+        .then((toast) => toast.present());
+    }
   }
 
   newQuestion(): void {

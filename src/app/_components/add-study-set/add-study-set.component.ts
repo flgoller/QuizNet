@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudySetsService } from '../../_services/study-sets.service';
 import { StudySet } from '../../_types/studySet';
 import { IonModal } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-study-set',
@@ -14,16 +15,29 @@ export class AddStudySetComponent implements OnInit {
   studySet: StudySet = new StudySet();
   submitted = false;
 
-  constructor(private studySetService: StudySetsService) { }
+  constructor(private studySetService: StudySetsService,
+    private toast: ToastController,) { }
 
   ngOnInit(): void { }
 
   saveStudySet(): void {
-    this.studySetService.create(this.studySet).then(() => {
-      console.log('Created new item successfully!');
-      this.submitted = true;
-    });
-    this.modal.dismiss('confirm');
+    let minLength = 2;
+    if(this.studySet.Name.length >= minLength)
+    {
+      this.studySetService.create(this.studySet).then(() => {
+        console.log('Created new item successfully!');
+        this.submitted = true;
+      });
+      this.modal.dismiss('confirm');
+    }
+    else{
+      this.toast.create({
+        message: `Der Name muss mindestens ${minLength} Zeichen lang sein.`,
+        color: 'danger',
+        duration: 2000,
+    })
+        .then((toast) => toast.present());
+    }
   }
 
   newStudySet(): void {
